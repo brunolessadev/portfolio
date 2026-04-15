@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <!-- Meta tag essencial para design responsivo (celular) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Portfólio </title>
+    
+    <!-- Link para o arquivo de estilos CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Link para ícones (usaremos para as redes sociais) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <main class="container">
+        <!-- SEÇÃO PRINCIPAL - INFORMAÇÕES PESSOAIS -->
+        <section class="secao-principal">
+            <!-- COLUNA ESQUERDA: SOBRE MIM -->
+            <div class="coluna sobre">
+                <h2>Sobre Mim</h2>
+                <p id="frase-sobre-mim">
+                    Uma frase sobre mim.
+                </p>
+            </div>
+
+            <!-- COLUNA CENTRAL: FOTO -->
+            <div class="coluna perfil">
+                <img id="foto-perfil" src="" alt="Sua foto de perfil">
+            </div>
+
+            <!-- COLUNA DIREITA: DETALHES -->
+            <div class="coluna detalhes">
+                <h2>Detalhes</h2>
+                <ul id="lista-detalhes">
+                    <!-- Os detalhes serão preenchidos pelo JavaScript -->
+                </ul>                
+
+                <div class="redes-sociais" id="lista-redes-sociais">
+                    <!-- Ícones das redes sociais também via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE PROJETOS -->
+        <section class="secao-projetos">
+
+
+          <!--  <h2>Meus Projetos</h2>  -->  
+
+
+            <div class="projetos-grid">
+                <div class="projeto-card" id="projeto-1">
+                    <!-- Projeto 1 via JS -->
+                </div>
+
+                <!--
+                <div class="projeto-card" id="projeto-2">
+
+                </div>
+                <div class="projeto-card" id="projeto-3">
+-->
+
+                </div>
+            </div>  
+        </section>
+
+
+<!-- Adicionando novos projetos
+        <section class="secao-projetos">
+
+                        <div class="projetos-grid">
+                <div class="projeto-card" id="projeto-4">
+
+                </div>
+                <div class="projeto-card" id="projeto-5">
+
+                </div>
+
+            </div> 
+
+        </section>
+
+-->
+
+    </main>
+
+        <footer class="rodape">
+        <p>&copy; <span id="ano-atual"></span> Bruno Lessa. Todos os direitos reservados.</p>
+    </footer>
+    
+    <!-- Link para o arquivo JavaScript (DEFER é importante!) -->
+    <script src="script.js" defer></script>
+    <script src="script_detalhes.js" defer></script>
+    <script src="script_projetos.js" defer></script>
+</body>
+</html>

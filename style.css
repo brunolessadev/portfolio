@@ -1,0 +1,134 @@
+/* ---- CONFIGURAÇÕES GLOBAIS E RESET ---- */
+* {
+    box-sizing: border-box; /* Faz o cálculo de tamanho das caixas ser mais intuitivo */
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+
+}
+
+/* ---- LAYOUT PRINCIPAL ---- */
+.container {
+    max-width: 1200px;
+    margin: 40px auto; /* Centraliza o container */
+    padding: 20px;
+}
+
+/* ---- SEÇÃO PRINCIPAL (SOBRE, FOTO, DETALHES) ---- */
+.secao-principal {
+    display: flex;
+    flex-wrap: wrap; /* Permite que as colunas quebrem em telas menores */
+    align-items: center;
+    gap: 20px; /* Espaço entre as colunas */
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    margin-bottom: 40px;
+}
+
+.coluna {
+    flex: 1; /* Faz as colunas dividirem o espaço igualmente */
+    min-width: 280px; /* Largura mínima antes de quebrar a linha */
+    text-align: center;
+}
+
+/* Estilos específicos das colunas */
+.sobre p {
+    font-style: italic;
+    color: #555;
+}
+
+.perfil img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%; /* Deixa a imagem redonda */
+    object-fit: cover; /* Garante que a imagem preencha o círculo sem distorcer */
+    border: 5px solid #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.detalhes ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.detalhes li {
+    margin-bottom: 10px;
+}
+
+/* Redes Sociais */
+.redes-sociais {
+    margin-top: 20px;
+}
+
+.redes-sociais a {
+    color: #333;
+    font-size: 30px; /* Tamanho do ícone */
+    margin: 0 12px;
+    display: inline-block; /* Garante que a transformação funcione corretamente */
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out; 
+}
+
+.redes-sociais a:hover {
+    /* O 'transform' faz a mágica do zoom sem empurrar nada */
+    transform: scale(1.5); /* Aumenta o tamanho em 20%. Ajuste o valor como quiser */    
+    color: rgb(138, 43, 226);  /* A cor de destaque continua aqui */
+}
+
+/* ---- SEÇÃO DE PROJETOS ---- */
+.secao-projetos {
+    text-align: center;
+}
+
+.projetos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;    
+}
+
+.projeto-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden; /* Garante que a imagem não saia do card */
+    text-align: left;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.projeto-card:hover {
+    transform: translateY(-25px);
+    box-shadow: 0 8px 20px rgb(138, 43, 226);
+}
+
+.projeto-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.projeto-card-info {
+    padding: 20px;
+}
+
+.projeto-card h3 {
+    margin-top: 0;
+}
+
+
+.rodape {
+    text-align: center;
+    padding: 25px;
+    margin-top: 10px; /* Adiciona um bom espaço acima do rodapé */
+    border-top: 1px solid #e7e7e7; /* Linha sutil para separar do conteúdo */
+    color: #888; /* Cor mais suave para o texto do rodapé */
+    font-size: 0.9rem; /* Tamanho de fonte um pouco menor */
+}
+
