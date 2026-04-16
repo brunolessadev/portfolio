@@ -52,6 +52,12 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
+.perfil img:hover {
+    transform: scale(1.1); /* Aumenta a imagem em 10% */
+    transition: transform 0.3s ease;
+    box-shadow: 0 8px 20px rgba(255, 165, 0);
+}
+
 .detalhes ul {
     list-style: none;
     padding: 0;
@@ -78,7 +84,7 @@ body {
 .redes-sociais a:hover {
     /* O 'transform' faz a mágica do zoom sem empurrar nada */
     transform: scale(1.5); /* Aumenta o tamanho em 20%. Ajuste o valor como quiser */    
-    color: rgb(138, 43, 226);  /* A cor de destaque continua aqui */
+    color: rgba(255, 165, 0);  /* A cor de destaque continua aqui */
 }
 
 /* ---- SEÇÃO DE PROJETOS ---- */
@@ -105,7 +111,7 @@ body {
 
 .projeto-card:hover {
     transform: translateY(-25px);
-    box-shadow: 0 8px 20px rgb(138, 43, 226);
+    box-shadow: 0 8px 20px rgba(255, 165, 0);
 }
 
 .projeto-card img {
