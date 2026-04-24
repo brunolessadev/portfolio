@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const meusProjetos = [
         {
             id: 'projeto-1', // Não mude o id
-            imagem: 'https://res.cloudinary.com/dsmwi4i94/image/upload/v1776357492/The_Seven_Deadly_Sins_Origin_tpflr0.jpg', // Adicione um link de imagem aqui
+            imagem: '/assets/_projeto1.jpg', // Adicione um link de imagem aqui
             titulo: 'Lion Sin Of Pride',
             descricao: 'O próprio site que você está vendo! Desenvolvido com HTML, CSS e JavaScript puros para demonstrar minhas habilidades em front-end e organização de código.',
             link: 'https://lionsinofpride.pages.dev/'
