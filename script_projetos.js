@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
             id: 'projeto-1', // Não mude o id
             imagem: 'https://res.cloudinary.com/dsmwi4i94/image/upload/v1777059283/The_Seven_Deadly_Sins_Origin_cxukrb.jpg', // Adicione um link de imagem aqui
             titulo: 'Lion Sin Of Pride',
-            descricao: 'O próprio site que você está vendo! Desenvolvido com HTML, CSS e JavaScript puros para demonstrar minhas habilidades em front-end e organização de código.',
+            descricao: 'Este projeto é uma fan wiki inspirada em The Seven Deadly Sins: Origin, desenvolvida inicialmente com HTML e CSS puros e posteriormente reestruturada utilizando React, TypeScript e Vite. O foco está na construção de interfaces modernas, componentização, organização escalável de código e experiência do usuário inspirada em UI de jogos.',
             link: 'https://lionsinofpride.pages.dev/'
         },
         
