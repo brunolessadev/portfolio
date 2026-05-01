@@ -20,7 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const minhasRedes = [
         { nome: 'LinkedIn', icone: 'fa-linkedin', url: 'https://www.linkedin.com/in/bruno-lessa-5059a423a' },
         { nome: 'GitHub', icone: 'fa-github', url: 'https://github.com/brunolessadev' },
+        /*
         { nome: 'Instagram', icone: 'fa-instagram', url: 'https://www.instagram.com/brunolessa_95' },
+         */
         { nome: 'Whatsapp', icone: 'fa-whatsapp', url: 'https://wa.me/5551999101866' }
     ];
 
