@@ -1,51 +1,117 @@
-// Aguarda o HTML ser totalmente carregado para então executar o script.
-// Isso garante que todos os elementos (como 'foto-perfil') já existem quando o código tentar encontrá-los.
-document.addEventListener('DOMContentLoaded', function() {
+// script.js - arquivo principal, importa todos os outros
+import { assets, preloadAssets } from './scriptAssets.js';
+import { renderHistoria, renderTecnologias } from './scriptDetails.js';
+import { renderProjetos, getProjetoDetalhes } from './scriptProjects.js';
 
-    // ===================================================================
-    // ÁREA DE EDIÇÃO: Coloque suas informações pessoais aqui!
-    // ===================================================================
-    
-    // --- INFORMAÇÕES PESSOAIS ---
-    
-    // Troque pelo link da sua foto. Use o link modificado do Google Drive ou um link direto de outro site.
-    const minhaFoto = "https://i.postimg.cc/cJTdTJdy/create-a-series-of-professional-profile-pictures-i-(1).jpg"; 
-    
-    // A frase que aparecerá na seção "Sobre Mim".
-    const fraseSobreMim = "Estudante de Engenharia de Software com os olhos voltados para o futuro da tecnologia. Tenho um grande interesse em como arquiteturas de sistemas e novas tecnologias podem ser usadas para inovar e otimizar a forma como interagimos com o mundo digital.";
-    
+const sections = ['inicio','sobre','historia','tecnologias','portfolio','contatos'];
+let current = 'inicio';
 
-    // Suas redes sociais. Adicione ou remova conforme precisar.
-    // Ícones disponíveis em: https://fontawesome.com/v6/search?o=r&m=free&f=brands
-    const minhasRedes = [
-        { nome: 'LinkedIn', icone: 'fa-linkedin', url: 'https://www.linkedin.com/in/bruno-lessa-5059a423a' },
-        { nome: 'GitHub', icone: 'fa-github', url: 'https://github.com/brunolessadev' },
-        /*
-        { nome: 'Instagram', icone: 'fa-instagram', url: 'https://www.instagram.com/brunolessa_95' },
-         */
-        { nome: 'Whatsapp', icone: 'fa-whatsapp', url: 'https://wa.me/5551999101866' }
-    ];
+// Inicialização
+preloadAssets();
+renderHistoria();
+renderTecnologias();
+renderProjetos();
 
+// Injetar imagens nos lugares corretos
+function injectImages(){
+  // logo header e footer
+  document.querySelectorAll('[data-img="logo"]').forEach(img=>{
+    img.src = assets.logoBL;
+  });
+  // hero city
+  const hero = document.getElementById('hero-img');
+  if(hero) hero.src = assets.heroCity;
   
-    // ===================================================================
-    // FIM DA ÁREA DE EDIÇÃO
-    // O código abaixo funciona sozinho. Você não precisa alterá-lo.
-    // ===================================================================
+  const avatar = document.getElementById('avatar-img');
+  if(avatar) avatar.src = assets.heroCity;
 
-    // --- Lógica para inserir os dados no HTML ---
+  const timelineImg = document.getElementById('timeline-img');
+  if(timelineImg) timelineImg.src = assets.timelineIcons;
 
-    // 1. Inserir informações pessoais
-    document.getElementById('foto-perfil').src = minhaFoto;
-    document.getElementById('frase-sobre-mim').textContent = fraseSobreMim;
+  const techImg = document.getElementById('tech-ref-img');
+  if(techImg) techImg.src = assets.techRef;
 
+  const projImg = document.getElementById('projects-img');
+  if(projImg) projImg.src = assets.projectsIcons;
 
-    // 3. Inserir os ícones das redes sociais
-    const listaRedesElemento = document.getElementById('lista-redes-sociais');
-    listaRedesElemento.innerHTML = ''; // Limpa antes de adicionar
-    minhasRedes.forEach(rede => {
-        listaRedesElemento.innerHTML += `<a href="${rede.url}" target="_blank" title="${rede.nome}"><i class="fab ${rede.icone}"></i></a>`;
+  const springImg = document.getElementById('spring-img');
+  if(springImg) springImg.src = assets.springBoot;
+
+  const footerLogo = document.getElementById('footer-logo');
+  if(footerLogo) footerLogo.src = assets.logoBL;
+}
+injectImages();
+
+// Header scroll + nav ativo
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  if(window.scrollY > 20) header.classList.add('scrolled');
+  else header.classList.remove('scrolled');
+
+  let active = 'inicio';
+  for(let id of sections){
+    const el = document.getElementById(id);
+    if(!el) continue;
+    if(window.scrollY >= el.offsetTop - 140) active = id;
+  }
+  if(active !== current){
+    current = active;
+    document.querySelectorAll('.nav-link').forEach(b=>{
+      b.classList.toggle('active', b.dataset.scroll === current);
     });
-    
-        document.getElementById('ano-atual').textContent = new Date().getFullYear();
+  }
+});
 
-  }); // Fim do 'DOMContentLoaded'
+function scrollToId(id){
+  document.getElementById('mobile-menu')?.classList.remove('open');
+  if(id==='inicio'){
+    window.scrollTo({top:0, behavior:'smooth'});
+    return;
+  }
+  document.getElementById(id)?.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+document.querySelectorAll('[data-scroll]').forEach(btn=>{
+  btn.addEventListener('click', e=>{
+    scrollToId(e.currentTarget.dataset.scroll);
+  });
+});
+
+// Mobile menu
+const toggle = document.getElementById('menu-toggle');
+const mobile = document.getElementById('mobile-menu');
+toggle?.addEventListener('click', ()=>{
+  mobile.classList.toggle('open');
+});
+
+// Modal detalhes
+window.abrirDetalhes = (id) => {
+  const p = getProjetoDetalhes(id);
+  if(!p) return;
+  let modal = document.getElementById('modal-detalhes');
+  if(!modal){
+    modal = document.createElement('div');
+    modal.id = 'modal-detalhes';
+    modal.className = 'modal-overlay open';
+    modal.innerHTML = `<div class="modal"><button class="modal-close" onclick="fecharModal()">✕</button><div id="modal-content"></div></div>`;
+    document.body.appendChild(modal);
+    modal.addEventListener('click', e=>{ if(e.target===modal) fecharModal(); });
+  }
+  modal.classList.add('open');
+  document.getElementById('modal-content').innerHTML = `
+    <div style="display:flex;gap:16px;align-items:center;margin-bottom:16px">
+      <div class="project-icon" style="width:64px;height:64px;font-size:28px;border-radius:16px">${p.icon}</div>
+      <div><h3 style="font-size:22px;font-weight:800">${p.title}</h3><div class="project-tags" style="margin-top:8px">${p.tags.map(t=>`<span>${t}</span>`).join('')}</div></div>
+    </div>
+    <p style="color:rgba(255,255,255,.7);font-size:14px;line-height:1.6">${p.desc}</p>
+    <img src="${assets.projectsIcons}" style="width:100%;height:80px;object-fit:contain;margin-top:16px;opacity:.6" />
+    <div style="margin-top:24px;display:flex;gap:12px">
+      <a href="${p.github}" class="btn-primary" style="text-decoration:none;font-size:11px">Abrir no GitHub</a>
+      <button class="btn-ghost" onclick="fecharModal()">Fechar</button>
+    </div>
+  `;
+};
+window.fecharModal = () => document.getElementById('modal-detalhes')?.classList.remove('open');
+window.addEventListener('keydown', e=>{ if(e.key==='Escape') window.fecharModal(); });
+
+console.log('Portfolio com imagens separadas - OK', assets);

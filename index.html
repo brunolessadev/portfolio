@@ -1,98 +1,334 @@
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <!-- Meta tag essencial para design responsivo (celular) -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Portfólio </title>
-    
-    <!-- Link para o arquivo de estilos CSS -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Link para ícones (usaremos para as redes sociais) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bruno Lessa | Desenvolvedor Java</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <main class="container">
-        <!-- SEÇÃO PRINCIPAL - INFORMAÇÕES PESSOAIS -->
-        <section class="secao-principal">
-            <!-- COLUNA ESQUERDA: SOBRE MIM -->
-            <div class="coluna sobre">
-                <h2>Sobre Mim</h2>
-                <p id="frase-sobre-mim">
-                    Uma frase sobre mim.
-                </p>
+  <header id="header">
+    <div class="header-inner">
+      <button class="logo-btn" data-scroll="inicio">
+        <img data-img="logo" id="logo-header" class="logo-img" src="images/logo-bl.png" alt="Logotipo BL">
+        <span class="logo-text">BRUNO_LESSA</span>
+      </button>
+
+      <nav class="nav-desktop">
+        <button data-scroll="inicio" class="nav-link active">Início</button>
+        <button data-scroll="sobre" class="nav-link">Sobre</button>
+        <button data-scroll="historia" class="nav-link">Trajetória</button>
+        <button data-scroll="tecnologias" class="nav-link">Tecnologias</button>
+        <button data-scroll="portfolio" class="nav-link">Portfólio</button>
+        <button data-scroll="contatos" class="nav-link">Contato</button>
+      </nav>
+
+      <button id="menu-toggle" class="menu-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu">
+      <button data-scroll="inicio" class="mobile-link">Início</button>
+      <button data-scroll="sobre" class="mobile-link">Sobre</button>
+      <button data-scroll="historia" class="mobile-link">Trajetória</button>
+      <button data-scroll="tecnologias" class="mobile-link">Tecnologias</button>
+      <button data-scroll="portfolio" class="mobile-link">Portfólio</button>
+      <button data-scroll="contatos" class="mobile-link">Contato</button>
+    </div>
+  </header>
+
+  <section id="inicio" class="hero">
+    <div class="hero-bg">
+      <img id="hero-img" class="hero-img" src="images/hero-city.webp" alt="Cidade cyberpunk">
+      <div class="hero-gradient"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-orb"></div>
+    </div>
+
+    <div class="container hero-content">
+      <div class="hero-left">
+        <div class="badge">
+          <span class="dot"></span>
+          Buscando estágio ou vaga júnior • Remoto, RS ou SC
+        </div>
+
+        <p class="kicker">Olá, me chamo</p>
+
+        <h1 class="hero-title">
+          <span class="gradient-text">Bruno Lessa</span>
+        </h1>
+
+        <h2 class="hero-subtitle">
+          Estudante de Engenharia de Software | Desenvolvedor Java em formação
+        </h2>
+
+        <p class="hero-desc">
+          Desenvolvo projetos para aplicar meus conhecimentos em Java,
+          programação orientada a objetos e desenvolvimento de software.
+          Busco uma oportunidade para evoluir tecnicamente e contribuir
+          com projetos reais.
+        </p>
+
+        <div class="hero-actions">
+          <button data-scroll="portfolio" class="btn-primary">
+            Ver projeto <span>→</span>
+          </button>
+          <button data-scroll="sobre" class="btn-ghost">Sobre mim</button>
+        </div>
+
+        <div class="hero-stack">
+          <span><i></i> Java</span>
+          <span><i></i> JavaFX</span>
+          <span><i></i> Spring Boot — em estudo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-line"></div>
+  </section>
+
+  <section id="sobre" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Sobre mim</h2>
+        <div class="line"></div>
+        <span class="tag">// whoami</span>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="lead">
+            Sou <strong>Bruno Lessa</strong>, estudante de Engenharia de Software
+            e desenvolvedor em formação, com foco em Java.
+          </p>
+
+          <p class="muted">
+            Concluí os cursos <span class="neon">Java Programming I e Java Programming II</span>,
+            oferecidos pela Universidade de Helsinque por meio do MOOC.fi.
+            Atualmente, estudo Spring Boot para avançar no desenvolvimento backend Java.
+          </p>
+
+          <p class="muted">
+            Também mantenho uma rotina contínua de estudos de inglês, com o objetivo
+            de alcançar a fluência e ampliar minhas possibilidades de aprendizado,
+            acesso à documentação técnica e colaboração profissional.
+          </p>
+
+          <p class="muted">
+            Busco uma oportunidade de estágio ou desenvolvedor júnior,
+            preferencialmente remota. Também considero oportunidades presenciais
+            no Rio Grande do Sul e em Santa Catarina, onde tenho suporte.
+          </p>
+
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-k">01</div>
+              <div class="stat-v">projeto Java concluído</div>
             </div>
 
-            <!-- COLUNA CENTRAL: FOTO -->
-            <div class="coluna perfil">
-                <img id="foto-perfil" src="" alt="Sua foto de perfil">
+            <div class="stat">
+              <div class="stat-k">02</div>
+              <div class="stat-v">cursos MOOC.fi concluídos</div>
             </div>
 
-            <!-- COLUNA DIREITA: DETALHES -->
-            <div class="coluna detalhes">
-                <h2>Detalhes</h2>
-                <ul id="lista-detalhes">
-                    <!-- Os detalhes serão preenchidos pelo JavaScript -->
-                </ul>                
-
-                <div class="redes-sociais" id="lista-redes-sociais">
-                    <!-- Ícones das redes sociais também via JavaScript -->
-                </div>
+            <div class="stat">
+              <div class="stat-k">RS + SC</div>
+              <div class="stat-v">possibilidade presencial</div>
             </div>
-        </section>
+          </div>
 
-        <!-- SEÇÃO DE PROJETOS -->
-        <section class="secao-projetos">
+          <div class="chips">
+            <span>Java</span>
+            <span>POO</span>
+            <span>JavaFX</span>
+            <span>Engenharia de Software</span>
+            <span>Spring Boot em estudo</span>
+            <span>Inglês em aprendizado</span>
+          </div>
+        </div>
 
+        <div class="about-card-wrap">
+          <div class="about-card">
+            <div class="about-avatar">
+              <img id="avatar-img" class="hero-img avatar" src="images/hero-city.webp" alt="Imagem de perfil de Bruno Lessa">
+              <div class="avatar-glow"></div>
+            </div>
 
-          <!--  <h2>Meus Projetos</h2>  -->  
+            <div class="about-mini">
+              <div class="mini-icon">BL</div>
+              <div>
+                <div class="mini-name">Bruno Lessa</div>
+                <div class="mini-role">Engenharia de Software</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+<section id="historia" class="section dark">
+  <div class="container">
+    <div class="section-head sm">
+      <div>
+        <h2>Minha trajetória</h2>
+        <p>Formação acadêmica, cursos e evolução contínua</p>
+      </div>
 
-            <div class="projetos-grid">
-                <div class="projeto-card" id="projeto-1">
-                    <!-- Projeto 1 via JS -->
-                </div>
+      <img
+        id="timeline-img"
+        class="timeline-img"
+        src="images/timeline-icons.png"
+        style="height:48px;width:auto;"
+        alt="Ícones da linha do tempo"
+      >
+    </div>
 
-                <!--
-                <div class="projeto-card" id="projeto-2">
+    <div id="historia-timeline" class="timeline"></div>
+  </div>
+</section>
 
-                </div>
-                <div class="projeto-card" id="projeto-3">
--->
+  <section id="tecnologias" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Tecnologias e conhecimentos</h2>
+        <span class="tag">stack • tools • learning</span>
 
-                </div>
-            </div>  
-        </section>
+        <img id="tech-ref-img" class="tech-ref-img"
+             src="images/tech-ref.png"
+             style="height:64px;width:auto;margin-left:auto"
+             alt="Referência visual de tecnologias">
+      </div>
 
+      <p class="muted">
+        Java é o foco atual dos meus estudos e projetos.
+        Spring Boot e inglês fazem parte do meu processo de aprendizado contínuo.
+      </p>
 
-<!-- Adicionando novos projetos
-        <section class="secao-projetos">
+      <div id="tech-grid" class="tech-grid"></div>
+    </div>
+  </section>
 
-                        <div class="projetos-grid">
-                <div class="projeto-card" id="projeto-4">
+  <section id="portfolio" class="section dark">
+    <div class="container">
+      <div class="section-head">
+        <h2>Portfólio Java</h2>
+        <span class="badge-count">1 projeto concluído</span>
 
-                </div>
-                <div class="projeto-card" id="projeto-5">
+        <img id="projects-img" class="projects-img"
+             src="images/projects-icons.png"
+             style="height:56px;width:auto;margin-left:auto;opacity:.3"
+             alt="Ícones de projetos">
+      </div>
 
-                </div>
+      <div id="portfolio-grid" class="portfolio-grid"></div>
+    </div>
+  </section>
 
-            </div> 
+  <section class="section">
+    <div class="container">
+      <div class="roadmap">
+        <div class="roadmap-inner">
+          <div class="roadmap-icon">
+            <img id="spring-img" class="spring-img"
+                 src="images/spring-boot.png"
+                 style="width:160px;height:160px;object-fit:contain"
+                 alt="Logotipo do Spring Boot">
+          </div>
 
-        </section>
+          <div class="roadmap-content">
+            <div class="roadmap-badge">Em andamento • Roadmap de estudos</div>
+            <h3>Spring Boot</h3>
 
--->
+            <p>
+              Estou estudando Spring Boot para aprofundar meus conhecimentos
+              em desenvolvimento backend Java. Meu objetivo é avançar na
+              construção de APIs REST, persistência de dados e arquitetura
+              de aplicações, aplicando esses conhecimentos em novos projetos.
+            </p>
 
-    </main>
+            <div class="roadmap-progress">
+              <div></div>
+              <span>Estudos em andamento</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <footer class="rodape">
-        <p>&copy; <span id="ano-atual"></span> Bruno Lessa. Todos os direitos reservados.</p>
-    </footer>
-    
-    <!-- Link para o arquivo JavaScript (DEFER é importante!) -->
-    <script src="script.js" defer></script>
-    <script src="script_detalhes.js" defer></script>
-    <script src="script_projetos.js" defer></script>
+  <section id="idiomas" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Desenvolvimento contínuo</h2>
+        <span class="tag">learning • consistency</span>
+      </div>
+
+      <div class="about-text">
+        <p class="lead">Inglês — aprendizado contínuo</p>
+
+        <p class="muted">
+          Estudo inglês de forma contínua, com o objetivo de alcançar a fluência
+          ao longo do tempo. Quero ampliar meu acesso à documentação técnica,
+          aos conteúdos de aprendizado e às oportunidades de colaboração
+          com equipes internacionais.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contatos" class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <h2>Contato</h2>
+
+          <p>
+            Estou em busca de oportunidades de estágio ou desenvolvedor júnior,
+            preferencialmente remotas. Também considero vagas presenciais
+            no Rio Grande do Sul e em Santa Catarina.
+          </p>
+
+          <div class="email-box">
+            <div class="email-icon">@</div>
+            <div>
+              <div class="label">E-mail</div>
+              <div class="value">brunolessahl@gmail.com</div>
+            </div>
+          </div>
+        </div>
+
+<div class="social-grid">
+  <a href="https://github.com/brunolessadev" class="social-card" target="_blank" rel="noopener noreferrer">
+    <span>GH</span> GitHub
+  </a>
+  <a href="https://www.linkedin.com/in/bruno-lessa-5059a423a" class="social-card" target="_blank" rel="noopener noreferrer">
+    <span>in</span> LinkedIn
+  </a>
+</div>
+
+      <div class="footer-bottom">
+        <div class="footer-left">
+          <img id="footer-logo" class="footer-logo-img" src="images/logo-bl.png" alt="Logotipo BL">
+          <span>Bruno Lessa © 2026 • Java, estudo e evolução contínua</span>
+        </div>
+
+        <span>Rio Grande do Sul • Brasil</span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="script.js"></script>
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+>
 </body>
 </html>
